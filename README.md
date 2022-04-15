@@ -1,9 +1,9 @@
 # Faza Api
 <p align="center">
-<a href="#"><img title="Faza-Api" src="https://img.shields.io/badge/Rest Api Free-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+<a href="#"><img title="Anony-Api" src="https://telegra.ph/file/40d0fd5b08db52953d9c8.jpg"></a>
 </p>
 <p align="center">
-<a href="https://github.com/xdlyy404"><img title="Author" src="https://img.shields.io/badge/AUTHOR-FADLY%20ID-orange.svg?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/Dark-Knight-Hiruwa"><img title="Author" src="https://telegra.ph/file/40d0fd5b08db52953d9c8.jpg"></a>
 </p>
 <p align="center">
 <a href="https://github.com/xdlyy404/followers"><img title="Followers" src="https://img.shields.io/github/followers/xdlyy404?color=blue&style=flat-square"></a>
