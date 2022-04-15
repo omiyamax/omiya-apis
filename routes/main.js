@@ -17,4 +17,8 @@ router.get('/about', (req, res) => {
     res.sendFile(__path + '/views/about.html')
 })
 
+router.get('/contact', (req, res) => {
+    res.sendFile(__path + '/views/contact.html')
+})
+
 module.exports = router
