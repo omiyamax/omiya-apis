@@ -8,7 +8,7 @@ var zahirr = db.get("zahirr");
 	console.log('')  
 }
  
-var creator = "Fadly ID"
+var creator = "HIRUWA ( ANONY )"
 var neoxr = "yntkts"
 var zeks = "administrator"
 var zeks2 = "apivinz"
@@ -106,7 +106,7 @@ loghandler = {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'masukan parameter apikey'
+        message: 'Contact owner to get api key wa.me/94771039631'
     },
     noturl: {
         status: false,
@@ -202,7 +202,7 @@ loghandler = {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'apikey invalid'
+        message: 'Contact owner to get api key wa.me/94771039631'
     },
     invalidlink: {
         status: false,
@@ -227,7 +227,7 @@ Akhir Pesan Error
 
 //router.use(favicon(__path + "/views/favicon.ico"));
 
-const listkey = ["fadlyid", "jayo", "FZDEVELOPER"];
+const listkey = ["hiruwa", "trex", "vIp"];
 
 router.post("/apikey", async (req, res, next) => {
   const key = req.query.key;
