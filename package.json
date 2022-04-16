@@ -1,5 +1,5 @@
 {
-  "name": "api-faza",
+  "name": "Anony-Api",
   "version": "1.1.0",
   "description": "My Rest Api",
   "main": "node index.js",
@@ -16,7 +16,7 @@
     "rest",
     "api"
   ],
-  "author": "fadlyid",
+  "author": "Hiruwa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/xdlyy404/RESTAPI/issues"
