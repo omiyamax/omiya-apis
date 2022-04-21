@@ -609,7 +609,9 @@ router.get('/download/tiktok', async (req, res, next) => {
                status: true,
                code: 200,
                creator: `${creator}`,
-               result
+               result,
+	
+		     owner : https://avatars.githubusercontent.com/u/87813313?v=4
              })
          })
          .catch((error) => {
