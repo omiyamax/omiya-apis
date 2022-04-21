@@ -11,6 +11,5 @@
 <a href="https://github.com/xdlyy404/RESTAPI/network/members"><img title="Forks" src="https://img.shields.io/github/forks/xdlyy404/RESTAPI?color=red&style=flat-square"></a>
 <a href="https://github.com/xdlyy404/RESTAPI/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/xdlyy404/RESTAPI?label=Watchers&color=blue&style=flat-square"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fxdlyy404%2FRESTAPI&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2300FF6D&title=hits&edge_flat=false"/></a>
-  https://dashboard.heroku.com/new?template=https://github.com/DARKCRIME1/My-Api-Vip.git
   
 </p>
