@@ -1,0 +1,20 @@
+{
+    "name": "T-REX V 3.0.0",
+    "description": "World Best Whatsapp Bot",
+    "logo": "https://telegra.ph/file/10bdbaab2d4d163e2affa.jpg",
+    "keywords": ["Trex", "T-REX"],
+    "stack": "container",
+    "env": {
+      "TREX_SESSION": {
+            "description": "Paste your QR session that you got from https://replit.com/@TRexWa/T-REX-QR-SESSION .",
+            "required": false
+        },
+      
+    },
+  "addons": [{
+      "plan": "heroku-postgresql"
+    }],
+    "buildpacks": [{
+      "url": "heroku-community/apt"
+      }]
+  }
