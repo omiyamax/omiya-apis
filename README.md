@@ -14,4 +14,4 @@
   
 </p>
 
-https://dashboard.heroku.com/new?template=https://github.com/DARKCRIME1/My-Api-Vip.git
+https://dashboard.heroku.com/new?template=https://github.com/DARKCRIME1/My-Api-Vip
