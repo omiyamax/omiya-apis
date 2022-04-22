@@ -21,7 +21,8 @@ app.use('/', mainrouter);
 app.use('/api', apirouter);
 
 app.listen(PORT, () => {
-    console.log(color("Server running on port " + PORT,'green'))
+    console.log(color("Server running on port " + PORT,'green')),
+    console.log(color("YOUR SITE IS WORKING NOW",'red'))
 })
 
 module.exports = app
