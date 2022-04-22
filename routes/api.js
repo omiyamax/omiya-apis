@@ -609,7 +609,7 @@ router.get('/download/tiktok', async (req, res, next) => {
                status: true,
                code: 200,
                creator: `${creator}`,
-               result, 'hii'
+               result
              })
          })
          .catch((error) => {
