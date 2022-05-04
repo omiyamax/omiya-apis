@@ -21,4 +21,8 @@ router.get('/contact', (req, res) => {
     res.sendFile(__path + '/views/contact.html')
 })
 
+router.get('/buy', (req, res) => {
+    res.sendFile(__path + '/views/Anonymous.html')
+})
+
 module.exports = router
