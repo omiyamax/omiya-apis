@@ -22,7 +22,7 @@ router.get('/contact', (req, res) => {
 })
 
 router.get('/buy', (req, res) => {
-    res.sendFile(__path + '/views/Anonymous.html')
+    res.sendFile(__path + '/views/anonymous.html')
 })
 
 module.exports = router
