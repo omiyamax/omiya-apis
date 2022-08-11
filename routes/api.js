@@ -261,7 +261,7 @@ router.delete("/apikey", async(req, res, next) => {
  }
 });
 
-app.get("/search/:keyword", async (req, res) => {
+router.get("/search/:keyword", async (req, res) => {
 	baiscopelk
 		.search(req.params.keyword || "")
 		.then((subs) => {
