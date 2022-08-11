@@ -243,9 +243,9 @@ router.get('/imdb', function(req, res) {
             var $ = cheerio.load(html);
 
             var json = {
-                title: "",
-                release_date: "",
-                rating: "",
+                title: `${title}`,
+                release_date: `${release}`,
+                rating: `${rating}`,
                 runtime: "",
                 keywords: "",
                 country: "",
