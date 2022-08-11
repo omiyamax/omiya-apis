@@ -25,7 +25,7 @@ var { EmojiAPI } = require("emoji-api");
 var emoji = new EmojiAPI();
 var router  = express.Router();
 var { TiktokDownloader } = require('../lib/tiktokdl.js')
-var { baiscopelk } = require('../lib/baiscopelk.js");
+var baiscopelk = require('../lib/baiscopelk");
 var { color, bgcolor } = require(__path + '/lib/color.js');
 var { fetchJson } = require(__path + '/lib/fetcher.js');
 var options = require(__path + '/lib/options.js');
@@ -261,7 +261,7 @@ router.delete("/apikey", async(req, res, next) => {
  }
 });
 
-app.get("/search/", async (req, res) => {
+app.get("/search/:keyword", async (req, res) => {
 	baiscopelk
 		.search(req.params.keyword || "")
 		.then((subs) => {
