@@ -271,13 +271,14 @@ var url = req.query.url
 var tt = await ditzz.downloader.tiktok(url)
 var result = {
   status: "200",
-  creator: "Ditzzy",
+  creator: `${creator}`,
   title: tt.title,
   thumb: tt.thumbnail,
   audSize: tt.media[2].formattedSize,
   vidSize: tt.media[1].formattedSize,
   video: tt.media[1].url,
   audio: tt.media[2].url
+ 
 }
 res.json(result)
 }  
