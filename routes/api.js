@@ -16,6 +16,8 @@ var secure = require('ssl-express-www');
 var cors = require('cors');
 var fetch = require('node-fetch');
 var cheerio = require('cheerio');
+const ditzz = require('ditzzlabs')
+const bodyParser = require('body-parser')
 var request = require('request');
 var zrapi = require("zrapi");
 var dotenv = require("dotenv").config()
@@ -260,6 +262,26 @@ router.delete("/apikey", async(req, res, next) => {
 });
  }
 });
+
+router.get('/tk', async (req, res, next) => {
+var url = req.query.url
+  if (!url) {
+    res.json(errnya)
+  } else {
+var tt = await ditzz.downloader.tiktok(url)
+var result = {
+  status: "200",
+  creator: "Ditzzy",
+  title: tt.title,
+  thumb: tt.thumbnail,
+  audSize: tt.media[2].formattedSize,
+  vidSize: tt.media[1].formattedSize,
+  video: tt.media[1].url,
+  audio: tt.media[2].url
+}
+res.json(result)
+}  
+})
 
 router.get("/search/:keyword", async (req, res) => {
 	baiscopelk
