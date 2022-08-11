@@ -25,6 +25,7 @@ var { EmojiAPI } = require("emoji-api");
 var emoji = new EmojiAPI();
 var router  = express.Router();
 var { TiktokDownloader } = require('../lib/tiktokdl.js')
+var { baiscopelk } = require('../lib/baiscopelk.js");
 var { color, bgcolor } = require(__path + '/lib/color.js');
 var { fetchJson } = require(__path + '/lib/fetcher.js');
 var options = require(__path + '/lib/options.js');
@@ -258,6 +259,18 @@ router.delete("/apikey", async(req, res, next) => {
 		message: 'apikey berhasil dihapus' 
 });
  }
+});
+
+app.get("/search/", async (req, res) => {
+	baiscopelk
+		.search(req.params.keyword || "")
+		.then((subs) => {
+			res.json({ status: true, data: subs });
+		})
+		.catch((e) => {
+			console.log(e);
+			res.json({ status: false, msg: e });
+		});
 });
 
 router.get('/game/family100', async (req, res, next) => {
