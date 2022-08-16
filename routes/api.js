@@ -279,7 +279,7 @@ router.delete("/apikey", async(req, res, next) => {
 
 
 
-router.get('/derana/news', (req, res) => {
+router.get('/derana/news', async(req, res) => {
 
     const url = "http://sinhala.adaderana.lk/sinhala-hot-news.php";
     axios.get(url)
@@ -304,7 +304,7 @@ router.get('/derana/news', (req, res) => {
                 results[i].body = elem.children[0].data;
             });
 
-            res.send({ data: results });
+            res.json({ data: results });
 
         })
         .catch(err => {
@@ -312,7 +312,7 @@ router.get('/derana/news', (req, res) => {
         })
 });
 
-router.get('/hirunews/news', (req, res) => {
+router.get('/hirunews/news', async(req, res) => {
 
     const url = "http://www.hirunews.lk/sinhala/local-news.php";
     axios.get(url)
@@ -333,7 +333,7 @@ router.get('/hirunews/news', (req, res) => {
                 results.push(news)
 
             });
-            res.send({data: results});
+            res.json({data: results});
             
         })
         .catch(err => {
