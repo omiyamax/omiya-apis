@@ -11,10 +11,7 @@ var zahirr = db.get("zahirr");
 var creator = "HIRUWA ( ANONY )"
 
 const axios = require('axios');
-const cheerio = require('cheerio');
-const app = express();
 const port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
