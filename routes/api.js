@@ -278,8 +278,8 @@ router.delete("/apikey", async(req, res, next) => {
 
 router.get("/news", async (req, res) => {
 	newss
-	
-	
+		
+		.search(req.params.keyword || "")
 		.then((subs) => {
 			res.json({ status: true, data: subs });
 		})
