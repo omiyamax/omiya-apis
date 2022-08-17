@@ -276,7 +276,7 @@ router.delete("/apikey", async(req, res, next) => {
 
 
 
-router.get("/news", async (req, res) => {
+router.get("/news/:keyword", async (req, res) => {
 	newss
 		
 		.search(req.params.keyword || "")
