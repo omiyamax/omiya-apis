@@ -11,9 +11,6 @@ var zahirr = db.get("zahirr");
 var creator = "HIRUWA ( ANONY )"
 
 const axios = require('axios');
-const port = process.env.PORT || 3000;
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
 
 var neoxr = "yntkts"
 var zeks = "administrator"
@@ -65,7 +62,8 @@ var {
   igstory,
   igdl,
   linkwa,
-  igDownloader
+  igDownloader,
+  news
 } = require("./../lib/anjay");
 
 var {
@@ -278,68 +276,18 @@ router.delete("/apikey", async(req, res, next) => {
 
 
 
-
-router.get('/derana/news', async(req, res) => {
-
-    const url = "http://sinhala.adaderana.lk/sinhala-hot-news.php";
-    axios.get(url)
-        .then(response => {
-
-            results = [];
-            const $ = cheerio.load(response.data, { decodeEntities: false });
-
-            $('div.news-story div.story-text h2').find('a').each((i, elem) => {
-                let news = {
-                    url: "http://sinhala.adaderana.lk/" + elem.attribs.href,
-                    text: elem.children[0].data
-                }
-                results.push(news)
-            });
-
-            $('div.news-story div.story-text div.thumb-image').find('img').each((i, elem) => {
-                results[i].image = elem.attribs.src;
-            });
-
-            $('div.news-story div.story-text').find('p').each((i, elem) => {
-                results[i].body = elem.children[0].data;
-            });
-
-            res.json({ data: results });
-
-        })
-        .catch(err => {
-            console.log(err);
-        })
+router.get("/news", async (req, res) => {
+		news
+		.then((data) => {
+			res.json({ status: true, data: result });
+		})
+		.catch((e) => {
+			console.log(e);
+			res.json({ status: false, msg: e });
+		});
 });
 
-router.get('/hirunews/news', async(req, res) => {
-
-    const url = "http://www.hirunews.lk/sinhala/local-news.php";
-    axios.get(url)
-        .then(response => {
-
-            results = [];
-            const $ = cheerio.load(response.data, {decodeEntities: false});
-
-
-            $('div.rp-ltsbx div.rp-mian div.lts-cntp').find('a').each((i, elem) => {
-                
-
-                let news = {
-                    url : elem.attribs.href,
-                    text: elem.children[0].data
-                }
-
-                results.push(news)
-
-            });
-            res.json({data: results});
-            
-        })
-        .catch(err => {
-            console.log(err);
-        })
-});
+          
 
 
 router.get('/game/family100', async (req, res, next) => {
