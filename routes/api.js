@@ -31,6 +31,7 @@ var emoji = new EmojiAPI();
 var router  = express.Router();
 var { TiktokDownloader } = require('../lib/tiktok.js')
 var baiscopelk = require('../lib/baiscopelk.js');
+var newss = require('../lib/newss.js');
 var { color, bgcolor } = require(__path + '/lib/color.js');
 var { fetchJson } = require(__path + '/lib/fetcher.js');
 var options = require(__path + '/lib/options.js');
@@ -62,8 +63,7 @@ var {
   igstory,
   igdl,
   linkwa,
-  igDownloader,
-  news
+  igDownloader
 } = require("./../lib/anjay");
 
 var {
@@ -276,10 +276,12 @@ router.delete("/apikey", async(req, res, next) => {
 
 
 
-router.get("/news", async (req, res) => {
-		news
-		.then((data) => {
-			res.json({ status: true, data: result });
+router.get("/newss/:keyword", async (req, res) => {
+	newss
+	
+		.search(req.params.keyword || "")
+		.then((subs) => {
+			res.json({ status: true, data: subs });
 		})
 		.catch((e) => {
 			console.log(e);
