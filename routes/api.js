@@ -9,9 +9,6 @@ var zahirr = db.get("zahirr");
 }
  
 var creator = "HIRUWA ( ANONY )"
-
-const axios = require('axios');
-
 var neoxr = "yntkts"
 var zeks = "administrator"
 var zeks2 = "apivinz"
