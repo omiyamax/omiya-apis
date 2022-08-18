@@ -274,45 +274,13 @@ router.delete("/apikey", async(req, res, next) => {
 //end tk&sub
 
 
+
 router.get("/news", async (req, res) => {
 	
-	
-    const url = "https://www.hirunews.lk/local-news.php";
-    axios.get(url)
-        .then(response => {
+	var Apikey = req.query.apikey
 
-           
-	    results = [];
-            const $ = cheerio.load(response.data);
-
-            $('.all-section-tittle').each((i, element) => {
-            
-            const postBox = $(element).find("a");
-            const title = $(postBox).text();
-            const Url = $(postBox).attr("href");
-            const bot = '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ɴᴇᴡꜱ ʙᴏᴛ 🔐';
-		    
-	 
-            
-		    
-	    
-            results.push({ Url , bot , title  });
-            
-           });
-           
-          
-           res.json({ data: results });
-
-            
-
-});
-	
-});
-
-
-
-
-router.get("/hiru", async (req, res) => {
+    if(!Apikey) return res.json(loghandler.notparam)
+    if(listkey.includes(Apikey)){
 	
 	
     const url = "https://www.hirunews.lk/local-news.php";
@@ -340,12 +308,16 @@ router.get("/hiru", async (req, res) => {
            });
            
           
-           res.json({ data: results });
+           res.json({ news: results });
+	    
+	    
 
             
 
 });
-	
+	} else {
+        res.json(loghandler.invalidKey)
+    }
 });
 
 router.get('/game/family100', async (req, res, next) => {
