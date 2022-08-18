@@ -274,7 +274,7 @@ router.delete("/apikey", async(req, res, next) => {
 //end tk&sub
 
 
-router.get("/news", async (req, res) => {
+app.get("/news", async (req, res) => {
 	
 	const url = "http://sinhala.adaderana.lk/sinhala-hot-news.php";
     axios.get(url)
@@ -288,7 +288,7 @@ router.get("/news", async (req, res) => {
                     url: "http://sinhala.adaderana.lk/" + elem.attribs.href,
                     text: elem.children[0].data
                 }
-                results.push(news)
+                results.push({ news })
             });
 
             $('div.news-story div.story-text div.thumb-image').find('img').each((i, elem) => {
@@ -309,7 +309,34 @@ router.get("/news", async (req, res) => {
 });
 
 
+router.get('/hiru', (req, res) => {
 
+    const url = "http://www.hirunews.lk/sinhala/local-news.php";
+    axios.get(url)
+        .then(response => {
+
+            results = [];
+            const $ = cheerio.load(response.data, {decodeEntities: false});
+
+
+            $('div.rp-ltsbx div.rp-mian div.lts-cntp').find('a').each((i, elem) => {
+                
+
+                let news = {
+                    url : elem.attribs.href,
+                    text: elem.children[0].data
+                }
+
+                results.push({ news })
+
+            });
+            res.send({data: results});
+            
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 
 router.get('/game/family100', async (req, res, next) => {
