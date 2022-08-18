@@ -299,7 +299,7 @@ router.get("/news", async (req, res) => {
                 results[i].body = elem.children[0].data;
             });
 
-            res.send({ data: results });
+            res.json({ data: results });
 
         })
         .catch(err => {
