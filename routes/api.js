@@ -289,31 +289,10 @@ router.get("/news", async (req, res) => {
             const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
             const bot = 'bot';
-            
-            
-           
-	    const ul = Url ;
-    axios.get(ul)
-        .then(response => {
-
-            
-
-            $('.main-article-section').each((i, element) => {
-            
-            const post = $(element).find("img");
-            const img = $(post).attr("data-src");
-            const text = ${element}.text("div");
-            const data = ${text}.data
-            results.push({ Url , img , data , bot });
+	    
+            results.push({ Url , bot });
             
            });
-	    
-	    
-	    
-	    
-	    
-	    
-	    });
            
           
            res.json({ data: results });
