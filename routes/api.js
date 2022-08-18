@@ -284,7 +284,6 @@ router.get("/news", async (req, res) => {
             results = [];
             const $ = cheerio.load(response.data);
 
-try {
             $('div.col-md-4 fb-stack-w desktop-news-block-ppd hidden-xs hidden-sm div.sub-1-news-block cat-bar-business-full').each((i, element) => {
             
             const postBox = $(element).find("a");
@@ -294,17 +293,11 @@ try {
             
            });
            
-           res.send({ data: results });
+          
            res.json({ data: results });
 
             
-} catch (e) {
-		throw "Error!. Unable to parse baiscopelk search results.";
-	}
 
-	if (results.length == 0) {
-		throw "No subtitles found for that keyword!.";
-	}
 });
 	
 });
