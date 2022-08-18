@@ -288,7 +288,7 @@ router.get("/news", async (req, res) => {
             $('.all-section-tittle').each((i, element) => {
             
             const postBox = $(element).find("a");
-            const title = ${postBox}.text();
+            const title = $(postBox).text();
             const Url = $(postBox).attr("href");
             const bot = 'bot';
 		    
