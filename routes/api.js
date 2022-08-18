@@ -284,11 +284,13 @@ router.get("/news", async (req, res) => {
             results = [];
             const $ = cheerio.load(response.data);
 
-            $('.trending-section').each((i, element) => {
+            $('.main-article-section').each((i, element) => {
             
             const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
             const bot = 'bot';
+		    
+		    
 	    
             results.push({ Url , bot });
             
@@ -306,26 +308,36 @@ router.get("/news", async (req, res) => {
 
 router.get('/hiru', (req, res) => {
 
-    const url = "https://www.newsfirst.lk/sinhala/latest-news";
+    const url = "https://www.hirunews.lk/";
     axios.get(url)
         .then(response => {
 
             results = [];
-            const $ = cheerio.load(response.data, {decodeEntities: false});
+            const $ = cheerio.load(response.data);
 
-
-            $('.col-md-12 news-lf-section').each((i, element) => {
-                
-
-                const postBox = $(element).find("a");
+            $('.main-article-section').each((i, element) => {
+            
+            const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
             const bot = 'bot';
-            results.push({ Url , bot });
-
-            });
-            res.json({data: results});
+		    
+            $('.main-article-section').each((i, element) => {
             
-        });
+            const postBox = $(element).find("p");
+            const text = $(postBox).data;
+		    
+		    
+	    
+            results.push({ Url , bot ,text});
+            
+           });
+           
+          
+           res.json({ data: results });
+
+            
+
+});
 });
 
 
