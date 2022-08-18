@@ -290,16 +290,13 @@ router.get("/news", async (req, res) => {
             const postBox = $(element).find("a");
             const title = $(postBox).text();
             const Url = $(postBox).attr("href");
-            const bot = 'bot';
+            const bot = '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ɴᴇᴡꜱ ʙᴏᴛ 🔐';
 		    
-	 $('.all-section-tittle').each((i, element) => {
-            
-            const post = $(element).find("div.middle-tittle-time");
-	const date = $(post).text();
+	 
             
 		    
 	    
-            results.push({ Url , bot , title , date });
+            results.push({ Url , bot , title  });
             
            });
            
@@ -313,30 +310,43 @@ router.get("/news", async (req, res) => {
 });
 
 
-/*router.get('/hiru', (req, res) => {
 
-    
-const response = await fetch('https://www.hirunews.lk/local-news.php');
-	const html = await response.text();
-	const $ = cheerio.load(html);
 
-	// extract post links and titles
-	const posts = [];
-	$(".all-section-tittle a").each((i, element) => {
-		if (i == 0 || i % 2 == 0) return;
-		const title = $(element).text();
-		const postUrl = $(element).attr("href");
+router.get("/hiru", async (req, res) => {
+	
+	
+    const url = "https://www.hirunews.lk/local-news.php";
+    axios.get(url)
+        .then(response => {
 
-		posts.push({
-			source_id: siteData.id,
-			title: title,
-			link: postUrl,
-		});
-		
-		res.json({ news: posts });
+           
+	    results = [];
+            const $ = cheerio.load(response.data);
+
+            $('.section > .trending-section  > .row ').each((i, element) => {
+            
+            const title = $(element).find("img").attr("alt");
+            const image = $(element).find('img').attr('src');
+            const ReadMore = $(element).find('a').attr('href');
+            const dateAndTime = $(element).find('.middle-tittle-time').text().replaceAll('\n', '');
+            const bot = '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ɴᴇᴡꜱ ʙᴏᴛ 🔐';
+		    
+	 
+            
+		    
+	    
+            results.push({ title , image , dateAndTime , ReadMore , bot });
+            
+           });
+           
+          
+           res.json({ data: results });
+
+            
 
 });
-*/
+	
+});
 
 router.get('/game/family100', async (req, res, next) => {
     var Apikey = req.query.apikey
