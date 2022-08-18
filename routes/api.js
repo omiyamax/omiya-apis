@@ -10,6 +10,9 @@ var zahirr = db.get("zahirr");
  
 var creator = "HIRUWA ( ANONY )"
 const axios = require('axios');
+const bodyParser = require('body-parser');
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 var neoxr = "yntkts"
 var zeks = "administrator"
 var zeks2 = "apivinz"
