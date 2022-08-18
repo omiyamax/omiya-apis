@@ -308,36 +308,26 @@ router.get("/news", async (req, res) => {
 
 router.get('/hiru', (req, res) => {
 
-    const url = "https://www.hirunews.lk/";
-    axios.get(url)
-        .then(response => {
+    
+const response = await fetch('https://www.hirunews.lk/local-news.php');
+	const html = await response.text();
+	const $ = cheerio.load(html);
 
-            results = [];
-            const $ = cheerio.load(response.data);
+	// extract post links and titles
+	const posts = [];
+	$(".all-section-tittle a").each((i, element) => {
+		if (i == 0 || i % 2 == 0) return;
+		const title = $(element).text();
+		const postUrl = $(element).attr("href");
 
-            $('.main-article-section').each((i, element) => {
-            
-            const postBox = $(element).find("a");
-            const Url = $(postBox).attr("href");
-            const bot = 'bot';
-		    
-            $('.main-article-section').each((i, element) => {
-            
-            const text = element.children[0].data;
-            
-		    
-		    
-	    
-            results.push({ Url , bot ,text});
-            
-           });
-           
-          
-           res.json({ data: results });
+		posts.push({
+			source_id: siteData.id,
+			title: title,
+			link: postUrl,
+		});
+		
+		res.json({ news: posts });
 
-            
-
-});
 });
 
 
