@@ -323,7 +323,7 @@ router.get('/hiru', (req, res) => {
 		    
             $('.main-article-section').each((i, element) => {
             
-            const text = $(element).text("p");
+            const text = element.children[0].data;
             
 		    
 		    
