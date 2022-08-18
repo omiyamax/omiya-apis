@@ -284,7 +284,7 @@ router.get("/news", async (req, res) => {
             results = [];
             const $ = cheerio.load(response.data);
 
-            $('div.rp-ltsbx div.rp-mian div.lts-cntp').each((i, element) => {
+            $('.rp-ltsbx .rp-mian .lts-cntp').each((i, element) => {
             
             const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
