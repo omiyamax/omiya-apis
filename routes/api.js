@@ -277,7 +277,7 @@ router.get("/news", async (req, res) => {
         .then(response => {
 
             results = [];
-            const $ = cheerio.load(response.data);
+            const $ = cheerio.load(response.data, { decodeEntities: false });
 
             $('div.news-story div.story-text h2').find('a').each((i, elem) => {
                 let news = {
