@@ -48,7 +48,6 @@
     "request": "^2.88.2",
     "ssl-express-www": "^3.0.7",
     "tiktok-scraper": "^1.4.12",
-    "body-parser": "^1.20.0",
     "ditzzlabs": "^2.2.0",
     "urlencode": "^1.1.0",
     "api-rey": "1.1.0",
