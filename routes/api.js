@@ -8,6 +8,7 @@ var zahirr = db.get("zahirr");
 	console.log('')  
 }
  
+
 var creator = "HIRUWA ( ANONY )"
 const axios = require('axios');
 const got = require('got');
