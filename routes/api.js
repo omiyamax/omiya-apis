@@ -292,9 +292,14 @@ router.get("/news", async (req, res) => {
             const Url = $(postBox).attr("href");
             const bot = 'bot';
 		    
+	 $('.all-section-tittle').each((i, element) => {
+            
+            const post = $(element).find(".middle-tittle-time");
+	const date = $(post).text();
+            
 		    
 	    
-            results.push({ Url , bot , title });
+            results.push({ Url , bot , title , date });
             
            });
            
