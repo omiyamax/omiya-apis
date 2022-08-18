@@ -323,8 +323,8 @@ router.get('/hiru', (req, res) => {
 		    
             $('.main-article-section').each((i, element) => {
             
-            const postBox = $(element).find("p");
-            const text = $(postBox).data;
+            const text = $(element).text("p");
+            
 		    
 		    
 	    
