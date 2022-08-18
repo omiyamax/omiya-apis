@@ -274,31 +274,23 @@ router.delete("/apikey", async(req, res, next) => {
 //end tk&sub
 
 
-app.get("/news", async (req, res) => {
+router.get("/news", async (req, res) => {
 	
-	const url = "http://sinhala.adaderana.lk/sinhala-hot-news.php";
+	const url = "https://www.newsfirst.lk/sinhala/latest-news";
     axios.get(url)
         .then(response => {
 
             results = [];
-            const $ = cheerio.load(response.data, { decodeEntities: false });
+            const $ = cheerio.load(response.data);
 
-            $('div.news-story div.story-text h2').find('a').each((i, elem) => {
+            $('div.col-md-4 fb-stack-w desktop-news-block-ppd hidden-xs hidden-sm div.sub-1-news-block cat-bar-business-full').find('a').each((i, elem) => {
                 let news = {
-                    url: "http://sinhala.adaderana.lk/" + elem.attribs.href,
-                    text: elem.children[0].data
+                    url: elem.attribs.href
                 }
-                results.push({ news })
+                results.push(news)
             });
 
-            $('div.news-story div.story-text div.thumb-image').find('img').each((i, elem) => {
-                results[i].image = elem.attribs.src;
-            });
-
-            $('div.news-story div.story-text').find('p').each((i, elem) => {
-                results[i].body = elem.children[0].data;
-            });
-
+            
             res.json({ data: results });
 
         })
