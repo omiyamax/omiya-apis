@@ -15,7 +15,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var neoxr = "yntkts"
-const got = require('got');
 var zeks = "administrator"
 var zeks2 = "apivinz"
 var secure = require('ssl-express-www');
