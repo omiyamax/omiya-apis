@@ -277,14 +277,14 @@ router.delete("/apikey", async(req, res, next) => {
 router.get("/news", async (req, res) => {
 	
 	
-    const url = "http://www.hirunews.lk/sinhala/local-news.php";
+    const url = "https://www.newsfirst.lk/sinhala/latest-news";
     axios.get(url)
         .then(response => {
 
             results = [];
             const $ = cheerio.load(response.data);
 
-            $('.rp-ltsbx .rp-mian .lts-cntp').each((i, element) => {
+            $('.col-md-12 hidden-lg hidden-md .panel panel-default').each((i, element) => {
             
             const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
@@ -313,7 +313,7 @@ router.get('/hiru', (req, res) => {
             const $ = cheerio.load(response.data, {decodeEntities: false});
 
 
-            $('.row .column left .sc-image').find('a').each((i, elem) => {
+            $('.row .col-sm-12 col-md-9 col-lg-9 section .trending-section .row .column left .sc-image').find('a').each((i, elem) => {
                 
 
                 let news = {
