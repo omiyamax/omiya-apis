@@ -283,8 +283,50 @@ router.delete("/apikey", async(req, res, next) => {
 
 //end news
 
-            
+ 
+router.get("/hiru", async (req, res) => {
+	const got = require('got');
+	
+	const anony = `https://anony-vip-edition.herokuapp.com/api/news?apikey=hiruwa`;
 
+		const response = await got(anony);
+		const json = JSON.parse(response.body);
+		if (response.statusCode === 200) 
+			
+	
+			var rm = json.news[0].ReadMore
+			
+			
+
+	 const url = `${rm}` ;
+    axios.get(url)
+        .then(response => {
+        
+        results = [];
+            const $ = cheerio.load(response.data);
+
+            $('.main-article-section ').each((i, element) => {
+            
+            const imag = $(element).find('img').attr('data-src');
+           
+            
+            
+		    
+	    
+            results.push({ imag });
+            
+           });
+           
+          
+           res.json({ news: results });
+	    
+	    
+
+          
+
+});
+	
+});
 
 router.get('/game/family100', async (req, res, next) => {
     var Apikey = req.query.apikey
