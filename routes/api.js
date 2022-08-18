@@ -313,7 +313,7 @@ router.get('/hiru', (req, res) => {
             const $ = cheerio.load(response.data, {decodeEntities: false});
 
 
-            $('div.rp-ltsbx div.rp-mian div.lts-cntp').find('a').each((i, elem) => {
+            $('.row .column left .sc-image').find('a').each((i, elem) => {
                 
 
                 let news = {
