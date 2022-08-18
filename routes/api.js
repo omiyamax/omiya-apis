@@ -277,24 +277,24 @@ router.delete("/apikey", async(req, res, next) => {
 router.get("/news", async (req, res) => {
 	
 	
-    const url = "https://www.newsfirst.lk/sinhala/latest-news";
+    const url = "https://www.baiscopelk.com/?s=Alive";
     axios.get(url)
         .then(response => {
 
             results = [];
             const $ = cheerio.load(response.data);
 
-            $('div.sub-1-news-block cat-bar-business-full').each((i, element) => {
+            $('.item-list').each((i, element) => {
             
-            const postBox = $(element).find("a");
+            const postBox = $(element).find(".post-box-title a");
             const Url = $(postBox).attr("href");
-            
+            const bot = 'bot';
             results.push({ Url });
             
            });
            
           
-           res.json({ data: results , url: Url });
+           res.send({ data: results });
 
             
 
