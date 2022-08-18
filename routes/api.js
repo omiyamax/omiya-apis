@@ -292,18 +292,17 @@ router.get("/news", async (req, res) => {
             
             
            
-	    const url = Url ;
-    axios.get(url)
+	    const ul = Url ;
+    axios.get(ul)
         .then(response => {
 
-            results = [];
-            const $ = cheerio.load(response.data);
+            
 
             $('.main-article-section').each((i, element) => {
             
             const post = $(element).find("img");
             const img = $(post).attr("data-src");
-            const text = ${element}.find("div");
+            const text = ${element}.text("div");
             const data = ${text}.data
             results.push({ Url , img , data , bot });
             
