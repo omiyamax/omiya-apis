@@ -281,9 +281,9 @@ router.get("/news", async (req, res) => {
     axios.get(url)
         .then(response => {
 
-            results = [];
-	    const html = await response.text();
-            const $ = cheerio.load(html);
+           
+	    results = [];
+            const $ = cheerio.load(response.data);
 
             $('.all-section-tittle').each((i, element) => {
             
