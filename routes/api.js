@@ -294,7 +294,7 @@ router.get("/news", async (req, res) => {
 		    
 	 $('.all-section-tittle').each((i, element) => {
             
-            const post = $(element).find(".middle-tittle-time");
+            const post = $(element).find("div.middle-tittle-time");
 	const date = $(post).text();
             
 		    
