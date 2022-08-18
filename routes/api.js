@@ -294,7 +294,7 @@ router.get("/news", async (req, res) => {
            });
            
           
-           res.send({ data: results });
+           res.json({ data: results });
 
             
 
