@@ -271,9 +271,9 @@ router.delete("/apikey", async(req, res, next) => {
 //end tk&sub
 
 
-
-router.get("/news", async (req, res) => {
+router.get("/news/:keyword", async (req, res) => {
 	news
+		.search(req.params.keyword || "")
 		.then((subs) => {
 			res.json({ status: true, data: subs });
 		})
@@ -285,7 +285,6 @@ router.get("/news", async (req, res) => {
 
 
 
-          
 
 
 router.get('/game/family100', async (req, res, next) => {
