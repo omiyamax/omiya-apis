@@ -276,27 +276,36 @@ router.delete("/apikey", async(req, res, next) => {
 
 router.get("/news", async (req, res) => {
 	
-	const url = "https://www.newsfirst.lk/sinhala/latest-news";
+	
+    const url = "https://www.newsfirst.lk/sinhala/latest-news";
     axios.get(url)
         .then(response => {
 
             results = [];
             const $ = cheerio.load(response.data);
 
-            $('div.col-md-4 fb-stack-w desktop-news-block-ppd hidden-xs hidden-sm div.sub-1-news-block cat-bar-business-full').find('a').each((i, elem) => {
-                let news = {
-                    url: elem.attribs.href
-                }
-                results.push(news)
-            });
+try {
+            $('div.col-md-4 fb-stack-w desktop-news-block-ppd hidden-xs hidden-sm div.sub-1-news-block cat-bar-business-full').each((i, element) => {
+            
+            const postBox = $(element).find("a");
+            const Url = $(postBox).attr("href");
+            
+            results.push({ Url });
+            
+           });
+           
+           res.send({ data: results });
+           res.json({ data: results });
 
             
-            res.json({ data: results });
+} catch (e) {
+		throw "Error!. Unable to parse baiscopelk search results.";
+	}
 
-        })
-        .catch(err => {
-            console.log(err);
-        })
+	if (results.length == 0) {
+		throw "No subtitles found for that keyword!.";
+	}
+});
 	
 });
 
