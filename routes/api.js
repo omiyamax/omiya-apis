@@ -289,9 +289,32 @@ router.get("/news", async (req, res) => {
             const postBox = $(element).find("a");
             const Url = $(postBox).attr("href");
             const bot = 'bot';
-            results.push({ Url , bot });
+            
+            
+           
+	    const url = Url ;
+    axios.get(url)
+        .then(response => {
+
+            results = [];
+            const $ = cheerio.load(response.data);
+
+            $('.main-article-section').each((i, element) => {
+            
+            const post = $(element).find("img");
+            const img = $(post).attr("data-src");
+            const text = ${element}.find("div");
+            const data = ${text}.data
+            results.push({ Url , img , data , bot });
             
            });
+	    
+	    
+	    
+	    
+	    
+	    
+	    });
            
           
            res.json({ data: results });
@@ -305,7 +328,7 @@ router.get("/news", async (req, res) => {
 
 router.get('/hiru', (req, res) => {
 
-    const url = "http://www.hirunews.lk/sinhala/local-news.php";
+    const url = "https://www.newsfirst.lk/sinhala/latest-news";
     axios.get(url)
         .then(response => {
 
@@ -313,23 +336,18 @@ router.get('/hiru', (req, res) => {
             const $ = cheerio.load(response.data, {decodeEntities: false});
 
 
-            $('.row .col-sm-12 col-md-9 col-lg-9 section .trending-section .row .column left .sc-image').find('a').each((i, elem) => {
+            $('.col-md-12 news-lf-section').each((i, element) => {
                 
 
-                let news = {
-                    url : elem.attribs.href,
-                    text: elem.children[0].data
-                }
-
-                results.push({ news })
+                const postBox = $(element).find("a");
+            const Url = $(postBox).attr("href");
+            const bot = 'bot';
+            results.push({ Url , bot });
 
             });
-            res.send({data: results});
+            res.json({data: results});
             
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        });
 });
 
 
