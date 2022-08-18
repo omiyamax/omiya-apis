@@ -9,7 +9,7 @@ var zahirr = db.get("zahirr");
 }
  
 var creator = "HIRUWA ( ANONY )"
-var axios = require('axios');
+const axios = require('axios');
 var neoxr = "yntkts"
 var zeks = "administrator"
 var zeks2 = "apivinz"
@@ -277,7 +277,7 @@ router.get("/news", async (req, res) => {
         .then(response => {
 
             results = [];
-            const $ = cheerio.load(response.data, { decodeEntities: false });
+            const $ = cheerio.load(response.data);
 
             $('div.news-story div.story-text h2').find('a').each((i, elem) => {
                 let news = {
