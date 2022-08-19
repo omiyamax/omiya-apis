@@ -283,7 +283,7 @@ router.delete("/apikey", async(req, res, next) => {
 //end news
 
  
-router.get("/hiru", async (req, res) => {
+router.post("/hiru", async (req, res) => {
 	const got = require('got');
 	
 	const anony = `https://anony-vip-edition.herokuapp.com/api/news?apikey=hiruwa`;
