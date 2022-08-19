@@ -287,14 +287,6 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 
-router.get("/gnews/:keyword", async (req, res) => {
-	news
-		.search(req.params.keyword || "")
-		.then((subs) => {
-			res.json({  news: subs });
-		})
-		
-});
 
 
 
