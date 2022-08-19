@@ -286,7 +286,7 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/hirunews", async (req, res) => {
-	var url = req.query
+	var url = req.query.url
 	var Apikey = req.query.apikey
 	
   
@@ -296,7 +296,7 @@ router.get("/hirunews", async (req, res) => {
 	
     
     
-	    axios.get(url)
+axios.get(url)
         .then(response => {
 
            
