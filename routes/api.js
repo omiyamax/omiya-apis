@@ -293,7 +293,7 @@ router.get("/ne", async (req, res) => {
     if(listkey.includes(Apikey)){
 	
 	
-    const url = "https://www.hirunews.lk/";
+    const url = "https://www.hirunews.lk/313172/%E0%B6%B6%E0%B7%9C%E0%B6%BB%E0%B6%AD%E0%B7%99%E0%B6%BD%E0%B7%8A-%E0%B6%B8%E0%B7%92%E0%B6%BD%E0%B7%9A-%E0%B7%83%E0%B7%94%E0%B7%85%E0%B7%94-%E0%B6%89%E0%B7%84%E0%B7%85-%E0%B6%BA%E0%B7%91%E0%B6%B8%E0%B6%9A%E0%B7%8A";
     axios.get(url)
         .then(response => {
 
@@ -308,7 +308,7 @@ router.get("/ne", async (req, res) => {
             const type = $(element).find('img').attr('data-src');
             const date = $(element,'.article-phara').text().replace('\n', '').replace('\n','');
             
-            results.push({ link , title , type , date , bot })
+            results.push({ link , title , type , date})
             
            });
            
