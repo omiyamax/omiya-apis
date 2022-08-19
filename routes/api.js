@@ -286,11 +286,11 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/gnews", async (req, res, next) => {
-	var q = req.query.query;
+	
 	var Apikey = req.query.apikey;
 	
 
-    if(!q) return res.json(loghandler.notquery)
+   
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
