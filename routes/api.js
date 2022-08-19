@@ -286,14 +286,15 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/hiru", async (req, res) => {
-	
+	var url = req.query.url;
 	var Apikey = req.query.apikey
-
+	
+    if(!url) return res.json(loghandler.noturl)
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
 	
-    const url = "https://www.hirunews.lk/313146/යුක්රේනයේ-න්‍යෂ්ටික-බලාගාරය-අවට-ගැටුම්-ගැන-ජගත්-මහලේකම්-කළකිරීමෙන්";
+    
     
 	    axios.get(url)
         .then(response => {
