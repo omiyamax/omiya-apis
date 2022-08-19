@@ -294,9 +294,8 @@ router.get("/gnews", async (req, res, next) => {
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
-	    
-const li = `https://www.hirunews.lk/313184/ජීවිතයට-පණ-දෙන්න-අභියෝගවලට-අභියෝගයක්-වුණු-දිරිය-පවුල-වීඩියෝ`;
-    axios.get(li)
+	    const url = "https://www.hirunews.lk/313182/%E0%B6%A2%E0%B6%B1%E0%B6%AD%E0%B7%8F-%E0%B6%B6%E0%B6%AF%E0%B7%94-%E0%B6%B8%E0%B7%94%E0%B6%AF%E0%B6%BD%E0%B7%8A-%E0%B7%80%E0%B7%85%E0%B6%B4%E0%B6%BD%E0%B7%8A%E0%B6%BD%E0%B6%A7-%E0%B6%BA%E0%B6%AF%E0%B7%8A%E0%B6%AF%E0%B7%93-%E0%B6%85%E0%B7%84%E0%B7%83-%E0%B6%8B%E0%B7%83%E0%B6%A7-%E0%B7%80%E0%B6%BD%E0%B7%8A-%E0%B7%80%E0%B7%90%E0%B6%AF%E0%B7%94%E0%B6%AB%E0%B7%94-%E0%B6%B4%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B6%A2%E0%B7%8F%E0%B7%81%E0%B7%8F%E0%B6%BD%E0%B7%8F%E0%B7%80-%E0%B7%80%E0%B7%93%E0%B6%A9%E0%B7%92%E0%B6%BA%E0%B7%9D";
+    axios.get(url)
         .then(response => {
 
            
@@ -314,8 +313,7 @@ const li = `https://www.hirunews.lk/313184/ජීවිතයට-පණ-දෙ�
             
             const title = $(element).find('h1.main-tittle').text();
             const date = $(element).find('p').text();
-            
-            
+
             
             results.push({ img , date , title , news })
             
