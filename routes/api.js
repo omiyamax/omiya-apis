@@ -286,15 +286,15 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/ne", async (req, res) => {
-	const query = req.query.query;
-	var Apikey = req.query.apikey
+	var q = req.query.query;
+	var Apikey = req.query.apikey;
+	
 
+    if(!q) return res.json(loghandler.notquery)
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
-	
-    const url = `${query}`;
-    axios.get(url)
+    axios.get(q)
         .then(response => {
 
            
