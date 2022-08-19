@@ -11,7 +11,6 @@ var zahirr = db.get("zahirr");
 
 var creator = "HIRUWA ( ANONY )"
 const axios = require('axios');
-const got = require('got');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -288,21 +287,21 @@ router.get("/hiru", async (req, res) => {
 	const got = require('got');
 	
 	const anony = `https://anony-vip-edition.herokuapp.com/api/news?apikey=hiruwa`;
-
+try {
 		const response = await got(anony);
 		const json = JSON.parse(response.body);
-		if (response.statusCode === 200) 
+		if (response.statusCode === 200) console.log('success news');
 			
 	
 			var rm = json.news[0].ReadMore
 			
 			
 
-	 const url = `${rm}` ;
+    const url = `${rm}`
     axios.get(url)
         .then(response => {
         
-        results = [];
+            results = [];
             const $ = cheerio.load(response.data);
 
             $('.main-article-section ').each((i, element) => {
@@ -320,11 +319,14 @@ router.get("/hiru", async (req, res) => {
           
            res.json({ news: results });
 	    
+	    });
 	    
-
+	    
+} catch {
+	      console.log('error news')
+}
           
 
-});
 	
 });
 
