@@ -305,7 +305,7 @@ router.delete("/apikey", async(req, res, next) => {
             const type = $(element).find('img').attr('data-src');
             const date = $('.today-video .ex-vd-tittle-time').text().replace('\n', '').replace('\n','');
             
-            console.log( link , title , type , date)
+            results.push({ link , title , type , date })
             
            });
            
