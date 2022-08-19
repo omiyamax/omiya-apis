@@ -33,7 +33,6 @@ var emoji = new EmojiAPI();
 var router  = express.Router();
 var { TiktokDownloader } = require('../lib/tiktok.js')
 var baiscopelk = require('../lib/baiscopelk.js');
-var news = require('..lib/news.js')
 var { color, bgcolor } = require(__path + '/lib/color.js');
 var { fetchJson } = require(__path + '/lib/fetcher.js');
 var options = require(__path + '/lib/options.js');
