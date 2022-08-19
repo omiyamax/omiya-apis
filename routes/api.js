@@ -286,17 +286,19 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/hirunews/", async (req, res) => {
-	
+	var url = req.query.url
 	var Apikey = req.query.apikey
 	
   
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
-	
+	if (!url) {
+		res.json(errnya)
+	} else {
     
     
-	    axios.get(req.param.url)
+	    axios.get(url)
         .then(response => {
 
            
@@ -328,6 +330,8 @@ router.get("/hirunews/", async (req, res) => {
             
 
 });
+		
+	}
 	} else {
         res.json(loghandler.invalidKey)
     }
