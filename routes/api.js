@@ -296,7 +296,7 @@ router.get("/hirunews/", async (req, res) => {
 	
     
     
-	    axios.get(req.query.url)
+	    axios.get(req.param.url)
         .then(response => {
 
            
