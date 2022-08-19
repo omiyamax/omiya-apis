@@ -282,53 +282,46 @@ router.delete("/apikey", async(req, res, next) => {
 
 //end news
 
- 
-router.post("/hiru", async (req, res) => {
-	const got = require('got');
+ router.get("/hiru", async (req, res) => {
 	
-	const anony = `https://anony-vip-edition.herokuapp.com/api/news?apikey=hiruwa`;
-try {
-		const response = await got(anony);
-		const json = JSON.parse(response.body);
-		if (response.statusCode === 200) console.log('success news');
-			
-	
-			var rm = json.news[0].ReadMore
-			
-			
+	var Apikey = req.query.apikey
 
-    const url = `${rm}`
+    if(!Apikey) return res.json(loghandler.notparam)
+    if(listkey.includes(Apikey)){
+	
+	
+    const url = "https://www.hirunews.lk/";
     axios.get(url)
         .then(response => {
-        
-            results = [];
-            const $ = cheerio.load(response.data);
 
-            $('.main-article-section ').each((i, element) => {
-            
-            const imag = $(element).find('img').attr('data-src');
            
+	    results = [];
+            const $ = cheerio.load(response.data);
+               $('.middle-article .row .col-md-6').each((i, element) => {
             
             
-		    
-	    
-            results.push({ imag });
+            const link = $(element).find('a').attr('href');
+            const title = $(element ,'.middle-sm-topic').text().replace('Read More..', '');
+            const type = $(element).find('img').attr('data-src');
+            const date = $('.today-video .ex-vd-tittle-time').text().replace('\n', '').replace('\n','');
+            
+            console.log( link , title , type , date)
             
            });
            
           
            res.json({ news: results });
 	    
-	    });
 	    
-	    
-} catch {
-	      console.log('error news')
-}
-          
 
-	
+            
+
 });
+	} else {
+        res.json(loghandler.invalidKey)
+    }
+});
+
 
 router.get('/game/family100', async (req, res, next) => {
     var Apikey = req.query.apikey
