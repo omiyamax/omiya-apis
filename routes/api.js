@@ -295,7 +295,7 @@ router.get("/gnews", async (req, res, next) => {
     if(listkey.includes(Apikey)){
 	
 	    
-const li = `${q}`;
+const li = `https://www.hirunews.lk/313184/ජීවිතයට-පණ-දෙන්න-අභියෝගවලට-අභියෝගයක්-වුණු-දිරිය-පවුල-වීඩියෝ`;
     axios.get(li)
         .then(response => {
 
