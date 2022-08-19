@@ -287,10 +287,7 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 router.get('/news/hiru', async (req, res, next) => {
 	
-	const url = req.query.url;
-
-	
-	if(!url) return res.json(loghandler.noturl)
+	const url = 'https://www.hirunews.lk/313184/ජීවිතයට-පණ-දෙන්න-අභියෝගවලට-අභියෝගයක්-වුණු-දිරිය-පවුල-වීඩියෝ';
 
 axios.get(url)
         .then(response => {
