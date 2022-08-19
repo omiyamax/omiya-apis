@@ -286,15 +286,15 @@ function _0xd05a(_0x14cd43,_0x82ffd4){const _0x3d7e6=_0x4cd8();return _0xd05a=fu
 
 
 router.get("/gnews", async (req, res, next) => {
-	
+	const q = req.query.query;
 	var Apikey = req.query.apikey;
 	
 
-   
+   if(!q) return res.json(loghandler.notquery)
     if(!Apikey) return res.json(loghandler.notparam)
     if(listkey.includes(Apikey)){
 	
-	    const url = "https://www.hirunews.lk/313182/%E0%B6%A2%E0%B6%B1%E0%B6%AD%E0%B7%8F-%E0%B6%B6%E0%B6%AF%E0%B7%94-%E0%B6%B8%E0%B7%94%E0%B6%AF%E0%B6%BD%E0%B7%8A-%E0%B7%80%E0%B7%85%E0%B6%B4%E0%B6%BD%E0%B7%8A%E0%B6%BD%E0%B6%A7-%E0%B6%BA%E0%B6%AF%E0%B7%8A%E0%B6%AF%E0%B7%93-%E0%B6%85%E0%B7%84%E0%B7%83-%E0%B6%8B%E0%B7%83%E0%B6%A7-%E0%B7%80%E0%B6%BD%E0%B7%8A-%E0%B7%80%E0%B7%90%E0%B6%AF%E0%B7%94%E0%B6%AB%E0%B7%94-%E0%B6%B4%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B6%A2%E0%B7%8F%E0%B7%81%E0%B7%8F%E0%B6%BD%E0%B7%8F%E0%B7%80-%E0%B7%80%E0%B7%93%E0%B6%A9%E0%B7%92%E0%B6%BA%E0%B7%9D";
+	    const url = q;
     axios.get(url)
         .then(response => {
 
